@@ -22,7 +22,7 @@ endif()
 
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
-CPMAddPackage("gh:W20MC/gd-imgui-cocos#bc81bb3")
+CPMAddPackage("gh:coopeeo/gd-imgui-cocos#d3e754b")
 target_link_libraries(${PROJECT_NAME} imgui-cocos)
 
 setup_geode_mod(${PROJECT_NAME})
