@@ -1,0 +1,22 @@
+{
+	"geode": "2.0.0-beta.24",
+	"gd": "2.204",
+	"version": "v1.0.0",
+	"id": "windows_20.ultrahack",
+	"name": "UltraHack",
+	"developer": "Windows 20",
+	"description": "My own hack client for GD.",
+	"early-load": true,
+	"resources": {
+		"files": [
+			"resources/fonts/PTSans-Regular.ttf"
+		]
+	},
+	"dependencies": [
+		{
+			"id": "geode.custom-keybinds",
+			"version": "v1.1.6",
+			"required": true
+		}
+	]
+}

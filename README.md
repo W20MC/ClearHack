@@ -1,2 +1,3 @@
-# UltraHack
-A hack client for GD. Use B to invoke.
+# W20Hack
+
+This is where she makes a mod.
