@@ -2,8 +2,8 @@
 #include <Geode/modify/CCScheduler.hpp>
 
 void Modules::speedHack() {
-	ImGui::SetNextWindowSize(ImVec2(202, 99));
-	ImGui::SetNextWindowPos(ImVec2(215, 60));
+	ImGui::SetNextWindowSize(ImVec2(202, 99), ImGuiCond_Once);
+	ImGui::SetNextWindowPos(ImVec2(215, 60), ImGuiCond_Once);
 
 	ImGui::Begin("Speedhack (WIP)");
 
