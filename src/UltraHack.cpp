@@ -9,15 +9,24 @@ UltraHack& UltraHack::get() {
 void UltraHack::toggle() {
     m_toggleHacks = !m_toggleHacks;
     ImGuiCocos::get().setVisible(m_toggleHacks);
+    if (PlayLayer::get()) {
+        CCEGLView::sharedOpenGLView()->showCursor(GameManager::sharedState()->getGameVariable("0024") || m_toggleHacks);
+    }
+    else {
+        CCEGLView::sharedOpenGLView()->showCursor(true);
+    }
 }
 
 void UltraHack::setup() {
     ImGuiCocos::get().setup([] {
-        auto* font = ImGui::GetIO().Fonts->AddFontFromFileTTF(
+        ImGuiIO& io = ImGui::GetIO();
+
+        auto* font = io.Fonts->AddFontFromFileTTF(
             (Mod::get()->getResourcesDir() / "PTSans-Regular.ttf").string().c_str(), 
             16.0f
         );
-        ImGui::GetIO().FontDefault = font;
+
+        io.FontDefault = font;
 
         ImVec4* colors = ImGui::GetStyle().Colors;
         colors[ImGuiCol_TitleBg] = ImVec4(1.00f, 0.14f, 0.14f, 1.00f);
