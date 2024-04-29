@@ -40,6 +40,7 @@ template <typename T>
 T UltraHack::idAccessor(const std::string& type, const std::string& id, T value) {
     if (type == "set") {
         Mod::get()->setSavedValue<T>(id, value);
+        return value;
     }
     else if (type == "get") {
         return Mod::get()->getSavedValue<T>(id);
