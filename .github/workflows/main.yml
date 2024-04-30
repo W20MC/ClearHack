@@ -24,8 +24,8 @@ jobs:
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
         with:
-          bindings: geode-sdk/bindings
-          bindings-ref: main
+          bindings: Prevter/bindings
+          bindings-ref: gd-hpp
           combine: true
           target: ${{ matrix.config.target }}
 
