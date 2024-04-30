@@ -9,11 +9,13 @@ UltraHack& UltraHack::get() {
 void UltraHack::toggle() {
     m_toggleHacks = !m_toggleHacks;
     ImGuiCocos::get().setVisible(m_toggleHacks);
-    if (PlayLayer::get()) {
-        CCEGLView::sharedOpenGLView()->showCursor(GameManager::sharedState()->getGameVariable("0024") || m_toggleHacks);
-    }
-    else {
-        CCEGLView::sharedOpenGLView()->showCursor(true);
+    if (auto* playLayer = PlayLayer::get()) {
+        bool cursorToggle = playLayer->m_isPaused ||
+            playLayer->m_hasCompletedLevel ||
+            GameManager::sharedState()->getGameVariable("0024") ||
+            m_toggleHacks;
+
+        CCEGLView::sharedOpenGLView()->showCursor(cursorToggle);
     }
 }
 
@@ -53,6 +55,9 @@ T UltraHack::idAccessor(const std::string& type, const std::string& id, T value)
     }
     else if (type == "get") {
         return Mod::get()->getSavedValue<T>(id);
+    }
+    else {
+        return T();
     }
 }
 
