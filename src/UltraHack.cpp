@@ -47,41 +47,27 @@ void UltraHack::setup() {
     ImGuiCocos::get().setVisible(false);
 }
 
-template <typename T>
-T UltraHack::idAccessor(const std::string& type, const std::string& id, T value) {
-    if (type == "set") {
-        Mod::get()->setSavedValue<T>(id, value);
-        return value;
-    }
-    else if (type == "get") {
-        return Mod::get()->getSavedValue<T>(id);
-    }
-    else {
-        return T();
-    }
-}
-
 void UltraHack::createCheckbox(const std::string& content, const std::string& id) {
-    bool idVal = this->idAccessor<bool>("get", id);
+    bool idVal = Mod::get()->getSavedValue<bool>(id);
 
     if (ImGui::Checkbox(content.c_str(), &idVal)) {
-        this->idAccessor<bool>("set", id, idVal);
+        Mod::get()->setSavedValue<bool>("set", id, idVal);
     }
 }
 
 void UltraHack::createInputFloat(const std::string& content, const std::string& id) {
-    float idVal = this->idAccessor<float>("get", id);
+    float idVal = Mod::get()->getSavedValue<float>(id);
 
     if (ImGui::InputFloat(content.c_str(), &idVal)) {
-        this->idAccessor<float>("set", id, idVal);
+        Mod::get()->setSavedValue<float>("set", id, idVal);
     }
 }
 
 void UltraHack::createInputString(const std::string& content, const std::string& id) {
-    std::string idVal = this->idAccessor<std::string>("get", id);
+    std::string idVal = Mod::get()->getSavedValue<std::string>(id);
 
     if (ImGui::InputText(content.c_str(), &idVal)) {
-        this->idAccessor<std::string>("set", id, idVal);
+        Mod:get()->setSavedValue<std::string>("set", id, idVal);
     }
 }
 
