@@ -59,7 +59,7 @@ void UltraHack::createInputFloat(const std::string& content, const std::string& 
     float idVal = Mod::get()->getSavedValue<float>(id);
 
     if (ImGui::InputFloat(content.c_str(), &idVal)) {
-        Mod::get()->setSavedValue<float>("set", id, idVal);
+        Mod::get()->setSavedValue<float>(id, idVal);
     }
 }
 
@@ -67,7 +67,7 @@ void UltraHack::createInputString(const std::string& content, const std::string&
     std::string idVal = Mod::get()->getSavedValue<std::string>(id);
 
     if (ImGui::InputText(content.c_str(), &idVal)) {
-        Mod:get()->setSavedValue<std::string>("set", id, idVal);
+        Mod:get()->setSavedValue<std::string>(id, idVal);
     }
 }
 
