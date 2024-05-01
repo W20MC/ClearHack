@@ -51,7 +51,7 @@ void UltraHack::createCheckbox(const std::string& content, const std::string& id
     bool idVal = Mod::get()->getSavedValue<bool>(id);
 
     if (ImGui::Checkbox(content.c_str(), &idVal)) {
-        Mod::get()->setSavedValue<bool>("set", id, idVal);
+        Mod::get()->setSavedValue<bool>(id, idVal);
     }
 }
 
