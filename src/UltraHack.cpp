@@ -67,7 +67,7 @@ void UltraHack::createInputString(const std::string& content, const std::string&
     std::string idVal = Mod::get()->getSavedValue<std::string>(id);
 
     if (ImGui::InputText(content.c_str(), &idVal)) {
-        Mod:get()->setSavedValue<std::string>(id, idVal);
+        Mod::get()->setSavedValue<std::string>(id, idVal);
     }
 }
 
