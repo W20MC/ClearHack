@@ -15,9 +15,6 @@ public:
 	void toggle();
 	void setup();
 
-	template <typename T>
-	T idAccessor(const std::string& type, const std::string& id, T value = T());
-
 	void createCheckbox(const std::string& content, const std::string& id);
 	void createInputFloat(const std::string& content, const std::string& id);
 	void createInputString(const std::string& content, const std::string& id);
