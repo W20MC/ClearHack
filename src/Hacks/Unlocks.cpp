@@ -5,7 +5,7 @@ using namespace geode::prelude;
 
 class $modify(GameStatsManager) {
     bool isItemUnlocked(UnlockType type, int id) {
-        if (type == UnlockType::GJItem && id == 17 && Mod::get()->getSavedValue<bool>("get", "practice-sync") == true) {
+        if (type == UnlockType::GJItem && id == 17 && Mod::get()->getSavedValue<bool>("practice-sync") == true) {
             return true;
         }
 
