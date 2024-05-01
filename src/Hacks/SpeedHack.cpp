@@ -22,14 +22,14 @@ class $modify(CCScheduler) {
 			FMODAudioEngine::sharedEngine()->m_system->getMasterChannelGroup(&masterGroup);
 		}
 
-		if (UltraHack::get().idAccessor<bool>("get", "speedhack")) {
-			if (UltraHack::get().idAccessor<float>("get", "speedhack-value") <= 0.0f) {
-				UltraHack::get().idAccessor<float>("set", "speedhack-value", 1.0f);
+		if (Mod::get()->getSavedValue<bool>("speedhack")) {
+			if (Mod::get()->getSavedValue<float>("speedhack-value") <= 0.0f) {
+				Mod::get()->setSavedValue<float>("set", "speedhack-value", 1.0f);
 			}
 			else {
 				dt = dt * UltraHack::get().idAccessor<float>("get", "speedhack-value");
-				if (UltraHack::get().idAccessor<bool>("get", "speedhack-music")) {
-					masterGroup->setPitch(UltraHack::get().idAccessor<float>("get", "speedhack-value"));
+				if (Mod::get()->getSavedValue<bool>("speedhack-music")) {
+					masterGroup->setPitch(Mod::get()->getSavedValue<float>("get", "speedhack-value"));
 				}
 				else {
 					masterGroup->setPitch(1);
