@@ -24,12 +24,12 @@ class $modify(CCScheduler) {
 
 		if (Mod::get()->getSavedValue<bool>("speedhack")) {
 			if (Mod::get()->getSavedValue<float>("speedhack-value") <= 0.0f) {
-				Mod::get()->setSavedValue<float>("set", "speedhack-value", 1.0f);
+				Mod::get()->setSavedValue<float>("speedhack-value", 1.0f);
 			}
 			else {
-				dt = dt * UltraHack::get().idAccessor<float>("get", "speedhack-value");
+				dt = dt * Mod::get()->getSavedValue<float>("speedhack-value");
 				if (Mod::get()->getSavedValue<bool>("speedhack-music")) {
-					masterGroup->setPitch(Mod::get()->getSavedValue<float>("get", "speedhack-value"));
+					masterGroup->setPitch(Mod::get()->getSavedValue<float>("speedhack-value"));
 				}
 				else {
 					masterGroup->setPitch(1);
