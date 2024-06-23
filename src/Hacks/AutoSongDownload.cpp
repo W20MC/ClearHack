@@ -8,7 +8,7 @@ class $modify(CustomSongWidget) {
         }
 
         if (Mod::get()->getSavedValue<bool>("song-download") == true) {
-            if (m_isNotDownloading == false) {
+            if (m_downloadBtn->isVisible()) {
                 m_downloadBtn->activate();
             }
         }
