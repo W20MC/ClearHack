@@ -2,7 +2,7 @@
 
 #include <Geode/Geode.hpp>
 #include <imgui-cocos.hpp>
-#include "../../UltraHack.hpp"
+#include "../../ClearHack.hpp"
 
 class Modules {
 public:

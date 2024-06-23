@@ -4,12 +4,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_OSX_ARCHITECTURES "x86_64")
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(UltraHack VERSION 1.0.0)
+project(ClearHack VERSION 1.0.0)
 
 file(GLOB_RECURSE SOURCES
 	src/*.cpp
-	src/Hacks/*.cpp
-	src/Hacks/Includes/*.cpp
+	src/*/*.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
@@ -22,7 +21,7 @@ endif()
 
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
-CPMAddPackage("gh:matcool/gd-imgui-cocos#b252045")
+CPMAddPackage("gh:matcool/gd-imgui-cocos#09a9555")
 target_link_libraries(${PROJECT_NAME} imgui-cocos)
 
 setup_geode_mod(${PROJECT_NAME})

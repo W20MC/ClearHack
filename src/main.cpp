@@ -1,7 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <geode.custom-keybinds/include/Keybinds.hpp>
 #include <Geode/modify/MenuLayer.hpp>
-#include "UltraHack.hpp"
+#include "ClearHack.hpp"
 
 using namespace geode::prelude;
 
@@ -10,7 +10,7 @@ $execute {
 
     BindManager::get()->registerBindable({
         "launch"_spr,
-        "Launch UltraHack",
+        "Launch ClearHack",
         "",
         { Keybind::create(KEY_L, Modifier::None) },
         "Hacks"
@@ -18,7 +18,7 @@ $execute {
 
     new EventListener([=](InvokeBindEvent* event) {
         if (event->isDown()) {
-            UltraHack::get().toggle();
+            ClearHack::get().toggle();
         }
         return ListenerResult::Propagate;
     }, InvokeBindFilter(nullptr, "launch"_spr));
@@ -30,7 +30,7 @@ class $modify(MenuLayer) {
             return false;
         }
 
-        UltraHack::get().setup();
+        ClearHack::get().setup();
         return true;
     }
 };

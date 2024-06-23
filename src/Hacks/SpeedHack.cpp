@@ -1,26 +1,13 @@
+#include "Geode/cocos/CCScheduler.h"
 #include "Includes/Hacks.hpp"
 #include <Geode/modify/CCScheduler.hpp>
 
 FMOD::ChannelGroup* masterGroup;
 
-void Modules::speedHack() {
-	ImGui::SetNextWindowSize(ImVec2(202, 110), ImGuiCond_Once);
-	ImGui::SetNextWindowPos(ImVec2(215, 60), ImGuiCond_Once);
-
-	ImGui::Begin("Speedhack");
-
-	UltraHack::get().createCheckbox("Enable", "speedhack");
-	UltraHack::get().createCheckbox("Speedhack Music", "speedhack-music");
-	UltraHack::get().createInputFloat("Value", "speedhack-value");
-
-	ImGui::End();
-}
-
-class $modify(CCScheduler) {
-	virtual void update(float dt) {
-		if (!masterGroup) {
-			FMODAudioEngine::sharedEngine()->m_system->getMasterChannelGroup(&masterGroup);
-		}
+float speedHack(float dt) {
+	if (!masterGroup) {
+		FMODAudioEngine::sharedEngine()->m_system->getMasterChannelGroup(&masterGroup);
+	}
 
 		if (Mod::get()->getSavedValue<bool>("speedhack")) {
 			if (Mod::get()->getSavedValue<float>("speedhack-value") <= 0.0f) {
@@ -39,6 +26,26 @@ class $modify(CCScheduler) {
 		else {
 			masterGroup->setPitch(1);
 		}
+	
+	return dt;
+}
+
+void Modules::speedHack() {
+	ImGui::SetNextWindowSize(ImVec2(202, 110), ImGuiCond_Once);
+	ImGui::SetNextWindowPos(ImVec2(215, 60), ImGuiCond_Once);
+
+	ImGui::Begin("Speedhack");
+
+	ClearHack::get().createCheckbox("Enable", "speedhack");
+	ClearHack::get().createCheckbox("Speedhack Music", "speedhack-music");
+	ClearHack::get().createInputFloat("Value", "speedhack-value");
+
+	ImGui::End();
+}
+
+class $modify(CCScheduler) {
+	virtual void update(float dt) {
+		dt = speedHack(dt);
 		CCScheduler::update(dt);
 	}
 };

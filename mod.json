@@ -1,9 +1,12 @@
 {
-	"geode": "2.0.0-beta.25",
-	"gd": "2.204",
+	"geode": "3.0.0",
+	"gd": {
+		"win": "2.206",
+		"mac": "2.206"
+	},
 	"version": "v1.0.0",
-	"id": "windows_20.ultrahack",
-	"name": "UltraHack",
+	"id": "windows_20.clearhack",
+	"name": "ClearHack",
 	"developer": "Windows 20",
 	"description": "My own hack client for GD.",
 	"early-load": true,
