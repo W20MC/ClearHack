@@ -23,11 +23,6 @@ jobs:
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
-        with:
-          bindings: Prevter/bindings
-          bindings-ref: gd-hpp
-          combine: true
-          target: ${{ matrix.config.target }}
 
   package:
     name: Package builds
