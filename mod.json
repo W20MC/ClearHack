@@ -4,6 +4,7 @@
 		"win": "2.206",
 		"mac": "2.206"
 	},
+	"repository": "https://github.com/W20MC/ClearHack",
 	"version": "v1.0.0",
 	"id": "windows_20.clearhack",
 	"name": "ClearHack",
