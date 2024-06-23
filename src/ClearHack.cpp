@@ -14,7 +14,11 @@ void ClearHack::toggle() {
             GameManager::sharedState()->getGameVariable("0024") ||
             m_toggleHacks;
 
-        CCEGLView::sharedOpenGLView()->showCursor(cursorToggle);
+        if (cursorToggle == true) {
+            PlatformToolbox::showCursor();
+        } else {
+            PlatformToolbox::hideCursor();
+        }
     }
 }
 
