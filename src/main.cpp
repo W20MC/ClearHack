@@ -1,11 +1,11 @@
 #include <Geode/Geode.hpp>
-#include <geode.custom-keybinds/include/Keybinds.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include "ClearHack.hpp"
 
 using namespace geode::prelude;
 
 #ifdef GEODE_IS_WINDOWS
+#include <geode.custom-keybinds/include/Keybinds.hpp>
 $execute {
     using namespace keybinds;
 
