@@ -5,6 +5,7 @@
 
 using namespace geode::prelude;
 
+#ifdef GEODE_IS_WINDOWS
 $execute {
     using namespace keybinds;
 
@@ -23,6 +24,17 @@ $execute {
         return ListenerResult::Propagate;
     }, InvokeBindFilter(nullptr, "launch"_spr));
 }
+#endif
+
+class $modify(CCKeyboardDispatcher) {
+    bool dispatchKeyMSG(enumKeyCodes key, bool down, bool repeat) {
+        if (key == KEY_L) {
+            ClearHack::get().toggle();
+        }
+
+        return CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat);
+    }
+};
 
 class $modify(MenuLayer) {
     bool init() {
